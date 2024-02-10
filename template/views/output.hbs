@@ -1,0 +1,95 @@
+<!-- views/output.hbs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Registration Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    /* Custom styles */
+    body {
+      background-image: url("https://media.istockphoto.com/id/1409722748/photo/students-raising-hands-while-teacher-asking-them-questions-in-classroom.webp?b=1&s=170667a&w=0&k=20&c=wmjzzESyHcSDFXYI1qzngse-EIj7aBMfebEaqjT8cjM="); /* Replace 'path/to/your/background-image.jpg' with the actual path to your background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #ffffff; /* Text color for better contrast with the background image */
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+.logo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  z-index: 1;
+}
+
+
+  .logo {
+    width: 300px; /* Adjust the width as needed */
+    height: 300px;
+  }
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+  
+    .card {
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background for the card */
+      color: #ffffff; /* Text color for the card */
+      border: none;
+      width: 400px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    .card-title {
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .card-text {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    /* Add more custom styles as needed */
+  </style>
+</head>
+<body>
+
+    
+
+  <div class="logo-container">
+    <img src="data:image/png;base64,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" alt="Anokhi Pehel Logo" class="logo"> <!-- Replace 'path/to/your/logo.png' with the actual path to your logo -->
+
+<img src="https://st3.depositphotos.com/5653638/14597/i/450/depositphotos_145972815-stock-photo-kids-and-education-concept-small.jpg" alt="Anokhi Pehel Logo" class="logo">
+
+  </div>
+ 
+  <div class="container">
+      
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Student Registration Details</h5>
+        <p class="card-text"><strong>Name:</strong> {{ details.name }}</p>
+        <p class="card-text"><strong>Father's Name:</strong> {{ details.fatherName }}</p>
+        <p class="card-text"><strong>Class:</strong> {{ details.class }}</p>
+        <p class="card-text"><strong>Age:</strong> {{ details.age }}</p>
+        <p class="card-text"><strong>Phone:</strong> {{ details.phone }}</p>
+        <p class="card-text"><strong>Location:</strong> {{ details.location }}</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
